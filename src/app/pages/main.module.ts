@@ -13,7 +13,8 @@ import { InvoiceComponent } from './invoice/invoice.component';
 import { ReportComponent } from './report/report.component';
 import { MainLayoutComponent } from '../layouts/main-layout/main-layout.component';
 import { MainNavComponent } from '../nav/main-nav/main-nav.component';
-
+import { ComponentsModule } from '../components/components.module';
+import { StockComponent } from './item/stock/stock.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { MainNavComponent } from '../nav/main-nav/main-nav.component';
     InvoiceComponent,
     ReportComponent,
     MainLayoutComponent,
-    MainNavComponent
+    MainNavComponent,
+    StockComponent
   ],
   imports: [
     CommonModule,
@@ -31,6 +33,7 @@ import { MainNavComponent } from '../nav/main-nav/main-nav.component';
     HttpClientModule,
     AppRoutingModule,
     MaterialModule,
+    ComponentsModule,
   ],
 })
 export class MainModule {}
