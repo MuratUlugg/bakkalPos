@@ -23,9 +23,9 @@ export class StockComponent implements OnInit {
         // tslint:disable-next-line:member-ordering
     totalCount: number;
         // tslint:disable-next-line:member-ordering
-    limit = 5;
+    limit = 2;
         // tslint:disable-next-line:member-ordering
-    loadingItem = 5;
+    loadingItem = 2;
         // tslint:disable-next-line:member-ordering
     ajax;
 

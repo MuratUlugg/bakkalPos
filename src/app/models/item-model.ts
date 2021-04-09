@@ -1,20 +1,20 @@
+import { Category } from './category';
+
 export class ItemModel {
-  name: string;
-  sku: string;
+  stockCode: string;
+  stockName: string;
+  unit: string;
   quantityAvailable: number;
-  title: string;
   cost: number;
   status: string;
-  estimatedAvailabilityDate: Date;
   quantityOnOrder: number;
   currencyCode: string ;
-  dscoItemId: number;
-  dscoSupplierName: string;
-  dscoSupplierId: string;
-  dscoCreateDate: Date ;
-  dscoLastQuantityUpdateDate: Date ;
-  dscoLastCostUpdateDate: Date ;
-  dscoLastUpdateDate: Date;
-  category: string;
+  supplierName: string;
+  supplierId: string;
+  createDate: Date ;
+  lastQuantityUpdateDate: Date ;
+  lastCostUpdateDate: Date ;
+  lastUpdateDate: Date;
+  categoryId: string;
   picture: string;
 }

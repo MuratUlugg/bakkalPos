@@ -1,5 +1,5 @@
 <div *ngIf="ItemService.loading">
-    <main *ngFor="let item of createRange()" class="page mb-4">
+    <main *ngFor="let item of createRange()" class="page mb-2">
       <!-- Content -->
       <div class="page-content">
         <!-- Placeholder Content -->
@@ -23,7 +23,7 @@
   <div *ngIf="itemss.length >0 ; else emptyTemplate">
     <div *ngFor="let item of itemss | paginate:{itemsPerPage:pageSize , currentPage:page,totalItems:totalCount}">
       <ng-container
-        *ngTemplateOutlet="horizontalTemplate;context:{id:item.sku,commentCount:item.quantityAvailable,viewCount:item.cost,categoryName:item.category,publishDate:item.dscoLastUpdateDate,contentSummary:item.dscoSupplierName,title:item.title,picture:item.picture}">
+        *ngTemplateOutlet="horizontalTemplate;context:{id:item.stockCode,itemName:item.stockName,quantityAvailable:item.quantityAvailable,unit:item.unit,status:item.status,price:item.cost,currencyCode:item.currencyCode}">
       </ng-container>
     </div>
   </div>
@@ -34,31 +34,36 @@
     </div>
   </ng-template>
   
-  <ng-template let-id=id let-commentCount=commentCount let-viewCount=viewCount let-categoryName=categoryName
-    let-publishDate=publishDate let-contentSummary=contentSummary let-title="title" let-picture="picture"
+  <ng-template let-id=id let-itemName=itemName let-quantityAvailable=quantityAvailable let-categoryName=categoryName
+    let-unit=unit let-status ="status" let-price ="price" let-currencyCode="currencyCode" let-picture="picture"
     #horizontalTemplate>
+
     <div class="card bg-light border-primary mb-4">
-      <div class="card body">
+      <div class="card body ">
         <div class="row">
           <div class="col-md-4">
             <img [src]="picture || defaultArticlePicture" class="card-img">
           </div>
           <div class="col-md-8">
-            <h5 class="title mt-2">{{title}}</h5>
-            <p class="text">{{contentSummary}}</p>
+            <h5 class="title mt-2">{{itemName}}</h5>
+            <p></p>
+            <p class="text">Stok Kodu : {{id}}</p> 
+            <p class="text">Birimi    : {{unit}}</p>   
+            
           </div>
         </div>
       </div>
       <div class="card-footer bg-transparent border-primary">
-        <span class="badge badge-pill badge-dark"><i class="fa fa-calendar"></i>
-          {{publishDate | date:'dd.MM.yyyy'}}</span>
         <span class="mr-1"></span>
         <span class="badge badge-pill badge-success"><i class="fa fa-folder"></i> {{categoryName}}</span>
         <span class="mr-1"></span>
-        <span class="badge badge-pill badge-success"><i class="fa fa-eye"></i> {{viewCount}}</span>
+        <span class="badge badge-pill badge-primary"><i class="fa fa-comments"></i> {{"Stok Durumu : "+ status}}</span>
         <span class="mr-1"></span>
-        <span class="badge badge-pill badge-primary"><i class="fa fa-comments"></i> {{commentCount}}</span>
-        <a [routerLink]="['/stock' ,id]" class="btn btn-primary btn-sm float-right"> Detay </a>
+        <span class="badge badge-pill badge-success"><i class="fas fa-tag"></i> {{"Kalan : " + quantityAvailable}}</span>
+        <span class="mr-1"></span>
+        <span class="badge badge-pill badge-success"><i class="far fa-money-bill-alt"></i> {{price}}{{" " +currencyCode}}</span>
+
+        <a [routerLink]="['/stock' ,id]" class="btn btn-primary btn-sm float-right">  Detay  </a>
       </div>
     </div>
   </ng-template>

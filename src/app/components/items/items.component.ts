@@ -43,15 +43,15 @@ export class ItemsComponent implements OnInit {
 
   // tslint:disable-next-line:typedef
   pageChanged(event) {
-    this.ItemService.loading = true;
-    this.page = event;
-    switch (this.typeList) {
-      case 'stock':
-        this.router.navigateByUrl(`/stock/${this.page}`);
-        break;
-      default:
-        break;
-    }
+    // this.ItemService.loading = true;
+    // this.page = event;
+    // switch (this.typeList) {
+    //   case 'stock':
+    //     this.router.navigateByUrl(`/stock/${this.page}`);
+    //     break;
+    //   default:
+    //     break;
+    // }
   }
 
 }

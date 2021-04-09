@@ -14,7 +14,7 @@ export class ItemService {
 
   // tslint:disable-next-line:typedef
   public getItem(page: number, limit: number) {
-    const api = `${this.apiUrl}?page=${page}&limit=${limit}`;
+    const api = `${this.apiUrl}`;
     return this.httpClient.get<ItemModel[]>(api).pipe(retry(1),
       tap((x) => {
         this.loading = false;
