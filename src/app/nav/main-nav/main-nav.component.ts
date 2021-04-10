@@ -7,7 +7,7 @@ enum MainPage {
   account = 3,
   invoice = 4,
   report = 5,
-  stock = 6
+  stocks = 6
 }
 @Component({
   selector: 'app-main-nav',
@@ -33,8 +33,8 @@ export class MainNavComponent implements OnInit {
           this.pageActive = MainPage.invoice;
         } else if (x.url.indexOf('report') > 0) {
           this.pageActive = MainPage.report;
-        } else if (x.url.indexOf('stock') > 0) {
-          this.pageActive = MainPage.stock;
+        } else if (x.url.indexOf('stocks') > 0) {
+          this.pageActive = MainPage.stocks;
         } else {
           this.pageActive = MainPage.home;
         }

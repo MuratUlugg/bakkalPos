@@ -43,15 +43,32 @@ export class ItemsComponent implements OnInit {
 
   // tslint:disable-next-line:typedef
   pageChanged(event) {
-    // this.ItemService.loading = true;
-    // this.page = event;
-    // switch (this.typeList) {
-    //   case 'stock':
-    //     this.router.navigateByUrl(`/stock/${this.page}`);
-    //     break;
-    //   default:
-    //     break;
-    // }
+    this.ItemService.loading = true;
+    this.page = event;
+    switch (this.typeList) {
+      case 'stock':
+        this.router.navigateByUrl(`/page/${this.page}`);
+        break;
+      case 'category':
+        const categoryId = this.route.snapshot.paramMap.get('categoryid');
+        this.router.navigateByUrl(
+          `/bycategory/${categoryId}/page/${this.page}`
+        );
+        break;
+      // case 'search':
+      //   let searchText = this.route.snapshot.queryParamMap.get('s');
+      //   this.router.navigateByUrl(`/search/page/${this.page}?s=${searchText}`);
+      //   break;
+      // case 'archive':
+      //   let year = this.route.snapshot.paramMap.get('year');
+      //   let month = this.route.snapshot.paramMap.get('month');
+      //   this.router.navigateByUrl(
+      //     `/archive/${year}/${month}/page/${this.page}`
+      //   );
+      //   break;
+      default:
+        break;
+    }
   }
 
 }

@@ -16,24 +16,24 @@ export class StockComponent implements OnInit {
       this.ajax.unsubscribe();
     } // İptal et
   }
+  constructor(
+    private itemService: ItemService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) {}
     // tslint:disable-next-line:member-ordering
     page = 1;
-    // tslint:disable-next-line:member-ordering
+        // tslint:disable-next-line:member-ordering
     items: ItemModel[];
         // tslint:disable-next-line:member-ordering
-    totalCount: number;
+    totalCount = 0;
         // tslint:disable-next-line:member-ordering
-    limit = 2;
+    limit = 4;
         // tslint:disable-next-line:member-ordering
     loadingItem = 2;
         // tslint:disable-next-line:member-ordering
     ajax;
 
-    constructor(
-      private itemService: ItemService,
-      private router: Router,
-      private route: ActivatedRoute
-    ) {}
     ngOnInit(): void {
       this.route.paramMap.subscribe((params) => {
         if (params.get('pageIndex')) {
@@ -52,7 +52,8 @@ export class StockComponent implements OnInit {
           .getItem(this.page, this.limit)
           .subscribe((data) => {
             this.items = data;
-            console.log(this.items);
+            this.totalCount = data.length;
+            console.log(this.totalCount);
           });
       });
     }

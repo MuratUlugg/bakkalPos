@@ -30,4 +30,15 @@ export class ItemService {
       })
     );
   }
+
+    // tslint:disable-next-line:typedef
+    public getItemByCategoryId(id: number) {
+      const api = `${this.apiUrl}/stockbycategory/${id}`;
+      console.log(api);
+      return this.httpClient.get<ItemModel[]>(api).pipe(
+        tap((x) => {
+          this.loading = false;
+        })
+      );
+    }
 }

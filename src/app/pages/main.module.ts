@@ -15,6 +15,7 @@ import { MainLayoutComponent } from '../layouts/main-layout/main-layout.componen
 import { MainNavComponent } from '../nav/main-nav/main-nav.component';
 import { ComponentsModule } from '../components/components.module';
 import { StockComponent } from './item/stock/stock.component';
+import { CategorystockComponent } from './item/categorystock/categorystock.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { StockComponent } from './item/stock/stock.component';
     ReportComponent,
     MainLayoutComponent,
     MainNavComponent,
-    StockComponent
+    StockComponent,
+    CategorystockComponent
   ],
   imports: [
     CommonModule,

@@ -24,11 +24,11 @@
                 class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item" [ngClass]="{active : pageActive==5 }">
-            <a class="nav-link" routerLink="/report"><i class="fas fa-address-card"></i> Raporlar <span
+            <a class="nav-link" routerLink="/report"><i class="fas fa-address-card"></i> Rapor <span
                 class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item" [ngClass]="{active : pageActive==6 }">
-            <a class="nav-link" routerLink="/stock"><i class="fas fa-address-card"></i> Ürünler Ve Stoklar <span
+            <a class="nav-link" routerLink="/stocks"><i class="fas fa-address-card"></i> Ürün Yönetimi <span
                 class="sr-only">(current)</span></a>
           </li>
         </ul>
@@ -38,16 +38,12 @@
                 class="sr-only">(current)</span></a>
           </li>
         </ul>
-        <!-- <form class="form-inline my-2 my-lg-0">
-          <input #searchText class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-          <button (click)="search(searchText.value)" class="btn btn-outline-success my-2 my-sm-0"
-            type="button">Search</button>
-        </form> -->
-  
-  
-  
-  
       </div>
     </div>
+    <form class="form-inline my-2 my-lg-0">
+      <input #searchText class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button (click)="search(searchText.value)" class="btn btn-outline-success my-1 my-sm-0"
+        type="button">Search</button>
+    </form>
   </nav>
   

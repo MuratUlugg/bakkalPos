@@ -21,7 +21,7 @@
   </div>
   
   <div *ngIf="itemss.length >0 ; else emptyTemplate">
-    <div *ngFor="let item of itemss | paginate:{itemsPerPage:pageSize , currentPage:page,totalItems:totalCount}">
+    <div *ngFor="let item of itemss | paginate:{itemsPerPage:limit , currentPage:page,totalItems:totalCount}">
       <ng-container
         *ngTemplateOutlet="horizontalTemplate;context:{id:item.stockCode,itemName:item.stockName,quantityAvailable:item.quantityAvailable,unit:item.unit,status:item.status,price:item.cost,currencyCode:item.currencyCode}">
       </ng-container>
@@ -53,7 +53,7 @@
           </div>
         </div>
       </div>
-      <div class="card-footer bg-transparent border-primary">
+      <div class="card-footer bg-transparent border-dark">
         <span class="mr-1"></span>
         <span class="badge badge-pill badge-success"><i class="fa fa-folder"></i> {{categoryName}}</span>
         <span class="mr-1"></span>
@@ -63,7 +63,7 @@
         <span class="mr-1"></span>
         <span class="badge badge-pill badge-success"><i class="far fa-money-bill-alt"></i> {{price}}{{" " +currencyCode}}</span>
 
-        <a [routerLink]="['/stock' ,id]" class="btn btn-primary btn-sm float-right">  Detay  </a>
+        <a [routerLink]="['/stock' ,id]" class="btn btn-primary btn-sm float-right">  Sat  </a>
       </div>
     </div>
   </ng-template>
