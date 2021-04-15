@@ -24,6 +24,18 @@ export class ItemsComponent implements OnInit {
     public ItemService: ItemService
   ) {}
 
+  ngAfterViewInit() {
+    this.ItemService.updatedStocks.subscribe((item: ItemModel) => {
+      console.log(item);
+      // tslint:disable-next-line:prefer-for-of
+      for (let index = 0; index < this.itemss.length; index++) {
+        // tslint:disable-next-line:no-conditional-assignment
+        if (this.itemss[index].stockCode === item.stockCode){
+          this.itemss[index] = item;
+        }
+      }
+    });
+  }
   // tslint:disable-next-line:typedef
   createRange() {
     // tslint:disable-next-line:prefer-const
@@ -33,7 +45,6 @@ export class ItemsComponent implements OnInit {
     }
     return items;
   }
-
 
   ngOnInit(): void {
     console.log(this.itemss);

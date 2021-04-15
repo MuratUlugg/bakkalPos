@@ -16,6 +16,9 @@ import { MainNavComponent } from '../nav/main-nav/main-nav.component';
 import { ComponentsModule } from '../components/components.module';
 import { StockComponent } from './item/stock/stock.component';
 import { CategorystockComponent } from './item/categorystock/categorystock.component';
+import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
+
+const config: SocketIoConfig = { url: 'http://192.168.1.6:1994', options: {} };
 
 @NgModule({
   declarations: [
@@ -27,7 +30,7 @@ import { CategorystockComponent } from './item/categorystock/categorystock.compo
     MainLayoutComponent,
     MainNavComponent,
     StockComponent,
-    CategorystockComponent
+    CategorystockComponent,
   ],
   imports: [
     CommonModule,
@@ -36,6 +39,7 @@ import { CategorystockComponent } from './item/categorystock/categorystock.compo
     AppRoutingModule,
     MaterialModule,
     ComponentsModule,
+    SocketIoModule.forRoot(config),
   ],
 })
 export class MainModule {}

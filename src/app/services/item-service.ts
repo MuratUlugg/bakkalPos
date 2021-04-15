@@ -3,15 +3,18 @@ import { HttpClient } from '@angular/common/http';
 import { ItemModel } from '../models/item-model';
 import { ItemList } from '../models/item-list-model';
 import { catchError, retry, tap } from 'rxjs/operators';
+import { Socket } from 'ngx-socket-io';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ItemService {
-  constructor(private httpClient: HttpClient) {}
+  constructor(private httpClient: HttpClient , private socket: Socket) {}
   public loading = true;
+
   private apiUrl = 'http://localhost:1995/stock';
 
+  updatedStocks = this.socket.fromEvent<ItemModel>('updatedStocks');
   // tslint:disable-next-line:typedef
   public getItem(page: number, limit: number) {
     const api = `${this.apiUrl}`;
